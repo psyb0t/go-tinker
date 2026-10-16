@@ -1,0 +1,25 @@
+package: tinker
+generate:
+  client: true
+  models: true
+output: client.gen.go
+output-options:
+  resolve-type-name-collisions: true
+  # The spec has schemas named <Operation>Response, the default suffix for the
+  # generated response wrappers. The collision resolver renames OptimStep's
+  # wrapper to OptimStepResponse2, which is already taken by a union member of
+  # the OptimStepResponse schema, so the output does not compile. A distinct
+  # suffix keeps the wrappers clear of the schema names.
+  response-type-suffix: HTTPResponse
+  # Learning rates, losses and sampling parameters are `type: number`, mostly
+  # without a format, which oapi-codegen maps to float32 by default. Map them,
+  # and the few `format: float` fields, to float64 so values keep full precision.
+  type-mapping:
+    number:
+      default:
+        type: float64
+      formats:
+        float:
+          type: float64
+compatibility:
+  always-prefix-enum-values: true
