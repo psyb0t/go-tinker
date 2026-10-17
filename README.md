@@ -56,6 +56,8 @@ The same code is in `example_test.go`, so `make test` checks that it compiles.
 
 Most training and sampling calls (`Forward`, `ForwardBackward`, `OptimStep`, `Sample`, `SaveWeights` and the rest) return an `UntypedAPIFuture` with a `request_id`. Pass that ID to `RetrieveFuture` to get the result once the server has it.
 
+The full API, with the spec's descriptions as doc comments, is in the [Go reference](https://pkg.go.dev/github.com/psyb0t/go-tinker) and in `go doc github.com/psyb0t/go-tinker` from inside your module.
+
 Response wrappers end in `HTTPResponse` (`CreateModelHTTPResponse`, `OptimStepHTTPResponse`), because the spec already uses names like `CreateModelResponse` for its own schemas.
 
 ## Auth
