@@ -2,6 +2,10 @@
 
 All notable changes per release. Versions follow [semver](https://semver.org).
 
+## v0.1.1, 2026-10-17
+
+- Documentation only. The README and `AGENTS.md` describe the daily regeneration workflow: what it checks, how it fixes failing checks, how it picks the next version and which paths a fix may not touch.
+
 ## v0.1.0, 2026-10-16
 
 - Added `tinker`, a REST client generated with oapi-codegen from the OpenAPI document published with Thinking Machines' Tinker SDK (Tinker API, spec version 0.1.0, OpenAPI 3.0.3). It covers all 15 paths: model creation and unloading, forward and backward passes, optimizer steps, sampling, weight saving and loading, futures, telemetry and health checks.

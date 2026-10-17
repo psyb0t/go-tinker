@@ -46,6 +46,7 @@ make sec       # gitleaks, govulncheck, semgrep
 - The spec's `servers` entry is a host it labels internal. The README and the skill use the default base URL of the official Python SDK instead.
 - CI skips the generate drift check, because `make generate` always pulls the newest upstream spec. Regenerate locally and commit the result.
 - `RetrieveFuture`'s 200 body is a raw JSON union. An `As...` decode for the wrong kind can succeed with empty fields.
+- `.github/workflows/regen.yml` regenerates the client every day and releases the result. When the checks fail, Claude edits the repository to fix them, but a fix may not touch the paths listed under `fix_protected_paths` in that workflow: the workflows, the Makefile, `AGENTS.md`, `.agents/rules/`, the lint, security and spec download scripts and their configs. A problem that needs a change there fails the run and needs a manual fix.
 
 ## Rules
 

@@ -104,6 +104,8 @@ make generate
 - `scripts/fix-nullable-types.sh` writes `api/openapi.fixed.yaml`. The spec declares OpenAPI 3.0.3 but uses the 3.1 type list form for two nullable array items (`type: [number, 'null']`), which oapi-codegen rejects. The script rewrites each one to `type: number` plus `nullable: true` and drops the `nullable: true` the spec already has next to them.
 - oapi-codegen runs with `config.yaml`. The config maps `number` to `float64`, because oapi-codegen would otherwise use `float32`, and sets the response wrapper suffix to `HTTPResponse` so the wrappers don't collide with the spec's schema names.
 
+`.github/workflows/regen.yml` does the same every day in CI. When the new spec changes the client, it runs `make lint`, `make test` and `make sec`. If a check fails, Claude edits the code and the checks run again, up to three times, and a review step reads the result. A passing change is committed with a CHANGELOG entry and tagged as the next release: a patch version for fixes and additions, a minor version for breaking changes.
+
 ## Development
 
 Every command runs in the `Dockerfile.dev` image. The host needs only Docker and Make.

@@ -1,6 +1,6 @@
 {
   "name": "go-tinker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unofficial Go client for the Thinking Machines Tinker API: typed methods for model creation, forward and backward passes, optimizer steps, sampling, weights and futures.",
   "author": { "name": "psyb0t", "url": "https://github.com/psyb0t" },
   "homepage": "https://github.com/psyb0t/go-tinker",
