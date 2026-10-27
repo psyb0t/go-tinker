@@ -14,7 +14,7 @@ Spec fetch (`scripts/fetch-spec.sh`) → patch (`scripts/fix-nullable-types.sh`)
 
 ## Stack
 
-- Go 1.26.9, one package `tinker` at the module root.
+- Go 1.26.10, one package `tinker` at the module root.
 - `github.com/oapi-codegen/runtime` at runtime; oapi-codegen and golangci-lint as `go tool` dependencies.
 - No logging: it is a library.
 
